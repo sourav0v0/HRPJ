@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Note from './Note';
 
-export default function NoteContainer({
+function NoteContainer({
+  notes
 }) {
-    const noteData = [{},{}];
+  const NoteLists = notes.map(notes =>{
+      const { tilte , description , isPinned }  = notes;
+      return <Note id={id} tilte={tilte} description={description} isPinned={isPinned} onPinnedClick={{}} />
+    })
   return (
-    <div>NoteContainer</div>
+    <>
+    <p> Pinned Noted</p>
+    {NoteLists}
+    </>
   )
 }
+
+export default NoteContainer;

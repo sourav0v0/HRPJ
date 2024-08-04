@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import {deleteNote, doneNote} from './actions/index';
 
 export default function Note({
     id,
@@ -7,6 +9,8 @@ export default function Note({
     isPinned = false,
     onPinCicked 
 }) {
+
+  const dispatch = useDispatch();
   const onPinClick = useCallback(() =>{
     if(typeof onPinCicked  === "function"){
         onPinCicked({
@@ -14,19 +18,11 @@ export default function Note({
         });
     }
   },[])
-   const onDeleteClick = useCallback(() =>{
-    if(typeof onPinCicked  === "function"){
-        onPinCicked({
-            id
-        });
-    }
+   const onDeleteClick = useCallback((id) =>{
+    useDispatch(deleteNote(id));
   },[])
    const onDoneCLick = useCallback(() =>{
-    if(typeof onPinCicked  === "function"){
-        onPinCicked({
-            id
-        });
-    }
+    useDispatch(doneNote(id));
   },[])
   return (
     <div className='note'>

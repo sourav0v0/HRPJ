@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { addNote } from './actions';
 
 export default function NoteInput() {
   const [active,setIsActive] = useState(false);
@@ -6,6 +8,7 @@ export default function NoteInput() {
     title: "",
     description: ""
   });
+  const dispatch = useDispatch();
   const hideInput = useCallback(()=>{
     setIsActive(false);
   },[])
@@ -36,11 +39,19 @@ export default function NoteInput() {
         description: value
     })
   }
+  const onSubmit = () =>{
+    const { title , description} = nodeData;
+    dispatch(addNote({
+      title,
+      description,
+      isPinned: false
+    }))
+  }
   
   return (<>
     <input value={noteData.title} type="text" onClick={onTitleChange} />
     <input value={noteData.description} type="text" onClick={onSubtitleChange} />
-    <input type="submit" >Submit</input>
+    <input type="submit" onClick={onSubmit}>Submit</input>
     </>
   )
 }
