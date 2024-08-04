@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux';
 import NoteContainer from './NoteContainer';
 import NoteInput from './NoteInput';
 import PinnedNotesContainer from './PinnedNoteContainer';
@@ -8,7 +9,7 @@ export default function Keep() {
   const pinnedNotes = [];
   const normalNotes = [];
   useEffect(()=>{
-   const { pinned, notPinned } = data.reduce((acc, item) => {
+   const { pinned, notPinned } = notes.reduce((acc, item) => {
   if (item.isPinned) {
     acc.pinned.push(item);
   } else {
@@ -16,8 +17,8 @@ export default function Keep() {
   }
   return acc;
 }, { pinned: [], notPinned: [] });
-  pinnedNotes.add(...pinned);
-  normalNotes.add(...notPinned);
+  pinnedNotes.push(...pinned);
+  normalNotes.push(...notPinned);
   }, [notes])
   return (
     <>

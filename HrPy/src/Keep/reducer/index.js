@@ -5,12 +5,18 @@ const intialState = [];
 const notes = (state = intialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
+      const { data } = action;
+      const {  title,
+  description,
+  isPinned} = data;
+    const length = state.length;
       return [
         ...state,
         {
-          id: action.id,
-          text: action.text,
-          completed: false
+          id: length,
+            title,
+  description,
+  isPinned,
         }
       ]
     case DELETE_NOTE:
