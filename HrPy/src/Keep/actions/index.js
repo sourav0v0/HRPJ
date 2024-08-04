@@ -1,22 +1,21 @@
-import { ADD_NOTE , DELETE_NOTE,DONE_NOTE } from "../type";
+import { ADD_NOTE, DELETE_NOTE, PINNED_NOTE, UNPINNED_NOTE } from "../type";
 
-export const addNote = ({
-  title,
-  description,
-  isPinned,
-}) => ({
+export const addNote = ({ title, description, isPinned }) => ({
   type: ADD_NOTE,
-  data: {  title,
-  description,
-  isPinned,}
-})
+  data: { title, description, isPinned },
+});
 
-export const deleteNote = id => ({
+export const deleteNote = (id) => ({
   type: DELETE_NOTE,
-  id
-})
+  data: { id },
+});
 
-export const doneNote = id => ({
-  type: DONE_NOTE,
-  id
-})
+export const unpinnedNote = (id) => ({
+  type: UNPINNED_NOTE,
+  data: { id },
+});
+
+export const pinnedNote = (id) => ({
+  type: PINNED_NOTE,
+  data: { id },
+});

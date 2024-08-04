@@ -1,0 +1,21 @@
+.note {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  height: auto;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: inline-grid;
+  overflow: hidden;
+}
+.note > * {
+  white-space: break-spaces;
+}
+.noteContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
