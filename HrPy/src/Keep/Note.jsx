@@ -7,6 +7,7 @@ export default function Note({
   id,
   title,
   description,
+  color,
   isPinned = false,
   onPinClick,
 }) {
@@ -23,8 +24,8 @@ export default function Note({
   }, [dispatch, id]);
 
   return (
-    <div className="note">
-      {title && <p>{title}</p>}
+    <div className="note" style={{ backgroundColor: color }}>
+      {title && <p className="noteTitle">{title}</p>}
       <span>{description}</span>
       <div className="pt-4">
         <input

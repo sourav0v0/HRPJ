@@ -8,6 +8,7 @@ export default function NoteContainer({ notes, title, onPinClick }) {
         key={note.id}
         id={note.id}
         title={note.title}
+        color={note.color}
         description={note.description}
         isPinned={note.isPinned}
         onPinClick={onPinClick}

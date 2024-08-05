@@ -7,10 +7,9 @@ const NoteInput = React.memo(() => {
   const [noteData, setNoteData] = useState({
     title: "",
     description: "",
+    color: "#ffffff",
     isPinned: false,
   });
-  const [activePinned, setIsActivePinned] = useState(noteData.isPinned);
-
   const dispatch = useDispatch();
 
   const onTitleChange = (event) => {
@@ -29,8 +28,21 @@ const NoteInput = React.memo(() => {
     }));
   };
 
+  const onColorChange = (event) => {
+    const value = event.target.value;
+    setNoteData((prevData) => ({
+      ...prevData,
+      color: value,
+    }));
+  };
+
   const onSubmitClicked = () => {
-    const { title = "", description = "", isPinned } = noteData;
+    const {
+      title = "",
+      description = "",
+      color = "#ffffff",
+      isPinned = false,
+    } = noteData;
     if (title.length === 0 && description.length === 0) {
       alert("Please add the title or description");
       return;
@@ -40,15 +52,15 @@ const NoteInput = React.memo(() => {
         title,
         description,
         isPinned,
+        color,
       })
     );
     setNoteData({ title: "", description: "" });
   };
 
   const pinnedNoteClicked = () => {
-    setIsActivePinned(!activePinned, (isActive) => {
-      setNoteData({ ...noteData, isPinned: isActive });
-    });
+    const { isPinned } = noteData;
+    setNoteData({ ...noteData, isPinned: !isPinned });
   };
 
   return (
@@ -69,6 +81,17 @@ const NoteInput = React.memo(() => {
           className="input titleInput"
         />
         <div className="flex">
+          <div>
+            <label htmlFor="favcolor">Pick Color</label>
+            <input
+              type="color"
+              id="favcolor"
+              className="favcolor"
+              name="favcolor"
+              onChange={onColorChange}
+              value={noteData.color}
+            />
+          </div>
           <input
             type="button"
             onClick={onSubmitClicked}
@@ -78,8 +101,8 @@ const NoteInput = React.memo(() => {
           <input
             type="button"
             onClick={pinnedNoteClicked}
-            className={`onSubmit ${activePinned ? "green" : "red"}`}
-            value="Pinned Note"
+            className={`onSubmit ${noteData.isPinned ? "red" : "green"}`}
+            value={`${noteData.isPinned ? "Pinned Note" : "UnPinned Note"}`}
           ></input>
         </div>
       </div>

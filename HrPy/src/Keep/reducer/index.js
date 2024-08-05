@@ -5,7 +5,7 @@ const initialState = [];
 
 const notes = (state = initialState, action) => {
   const { data = {}, type } = action;
-  const { title, description, isPinned, id = -1 } = data;
+  const { title, description, isPinned, color, id = -1 } = data;
   switch (type) {
     case ADD_NOTE:
       return [
@@ -15,6 +15,7 @@ const notes = (state = initialState, action) => {
           title,
           description,
           isPinned,
+          color,
         },
       ];
     case DELETE_NOTE:

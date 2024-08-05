@@ -1,16 +1,16 @@
 Functionalities required:
-1. Ability to create a note with title (optional) and content
-2. Ability to view all the created notes in a four column layout
-3. Ability to pin a note
-4. Ability to delete a note
+1. Ability to create a note with title (optional) and content [X]
+2. Ability to view all the created notes in a four column layout [X]
+3. Ability to pin a note [X]
+4. Ability to delete a note [X]
 Conditions:
-1. This app has to be built with React
-2. Do not use any UI library or a CSS framework
-3. Use Redux to store all the notes without requiring any API
+1. This app has to be built with React [X]
+2. Do not use any UI library or a CSS framework [X]
+3. Use Redux to store all the notes without requiring any API [X]
 4. Share the code via a GitHub repository and host the live version of the app somewhere
-you like (GitHub pages, Netlify etc.)
+you like (GitHub pages, Netlify etc.) [X]
 Bonus points for:
 1. Using TypeScript
 2. Ability to add images to a note
-3. Ability to add background colours to a note
+3. Ability to add background colours to a note [X]
 4. Mobile responsiveness

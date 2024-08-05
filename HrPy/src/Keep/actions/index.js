@@ -1,8 +1,8 @@
 import { ADD_NOTE, DELETE_NOTE, PINNED_NOTE, UNPINNED_NOTE } from "../type";
 
-export const addNote = ({ title, description, isPinned }) => ({
+export const addNote = ({ title, description, isPinned, color }) => ({
   type: ADD_NOTE,
-  data: { title, description, isPinned },
+  data: { title, description, isPinned, color },
 });
 
 export const deleteNote = (id) => ({
