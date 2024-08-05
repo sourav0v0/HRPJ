@@ -1,7 +1,7 @@
 - To run project locally
-- Steps
+    - Steps
     - cd HRPY
     - npm i
     - npm run dev
-  And you are good to go for the development
+And you are good to go for the development
 
